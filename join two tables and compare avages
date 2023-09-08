@@ -1,0 +1,7 @@
+select first_name ,last_name ,
+avg(s.salary)  from employees m
+ join salaries s on s.emp_no=m.emp_no
+ group by s.emp_no having avg( s.salary) > 
+ (select avg(salary) from salaries);
+
+ #find which employee earn above average from two tables 
