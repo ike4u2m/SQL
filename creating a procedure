@@ -1,0 +1,8 @@
+delimiter $$
+create procedure dept_em()
+begin
+select * from dept_emp;
+end $$
+delimiter ;
+
+create a procedure in sql
