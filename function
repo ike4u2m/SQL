@@ -1,0 +1,18 @@
+delimiter $$
+
+create function get_employee_name(emp_no int)
+returns varchar(50)
+deterministic
+begin
+ 
+ declare v_first_name varchar(50);
+ 
+select first_name 
+into v_first_name
+from employees
+where employees.emp_no= emp_no
+ ;
+
+ return v_first_name;
+end $$
+delimiter ;
