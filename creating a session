@@ -1,0 +1,11 @@
+-- creating a sesssion 
+
+set @avrage_salary= (select avg(salary) from salaries);
+set @adds = 3;
+
+
+--calling a session 
+
+select @avrage_salary;
+
+
