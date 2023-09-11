@@ -1,0 +1,35 @@
+
+select gender, case 
+when gender = 'f' then 'famel'
+else 'male'
+end as gender
+
+  from employees;
+
+
+
+
+example
+
+
+
+select  case 
+when salary > 63761 then 'high'
+
+else 'poor'
+end as salary
+
+  from salaries;
+
+
+
+
+example
+
+select  case 
+when salary > (select round(avg(salary)) from salaries) then 'high'
+
+else 'poor'
+end as salary
+
+  from salaries;
