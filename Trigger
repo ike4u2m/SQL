@@ -1,0 +1,37 @@
+
+DELIMITER //
+
+CREATE TRIGGER insert_default_email
+BEFORE INSERT ON sale_book
+FOR EACH ROW
+BEGIN
+    IF NEW.email IS NULL OR NEW.email = '' THEN
+        SET NEW.email = 'n/a';
+    END IF;
+END;
+DELIMITER;
+
+
+-- more examples
+
+
+DELIMITER //
+
+CREATE TRIGGER insert_default_sales
+BEFORE INSERT ON sale_book
+FOR EACH ROW
+BEGIN
+    IF NEW.sales < -0  THEN
+        SET NEW.sales = 0;
+    END IF;
+END;
+DELIMITER;
+
+
+
+
+
+
+---remove trigger 
+
+drop trigger if exists trigger_name;
