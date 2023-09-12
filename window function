@@ -1,0 +1,10 @@
+select emp_no,salary,
+row_number() over ( partition by emp_no) as row_num
+ from salaries;
+
+
+
+select emp_no,max(salary) from 
+( select emp_no,salary, row_number() 
+over ( partition by emp_no) as row_num
+ from salaries) a group by emp_no;
