@@ -8,3 +8,13 @@ select emp_no,max(salary) from
 ( select emp_no,salary, row_number() 
 over ( partition by emp_no) as row_num
  from salaries) a group by emp_no;
+
+
+
+lead function
+
+select emp_no,salary,
+lead(salary) 
+over ( partition by emp_no order by salary ) as row_num
+ from salaries
+ where emp_no = 10001;
