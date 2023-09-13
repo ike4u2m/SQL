@@ -18,3 +18,13 @@ lead(salary)
 over ( partition by emp_no order by salary ) as row_num
  from salaries
  where emp_no = 10001;
+
+
+
+lag()
+
+select emp_no,salary,
+lag(salary) 
+over ( partition by emp_no order by salary ) as row_num
+ from salaries
+ where emp_no = 10001;
