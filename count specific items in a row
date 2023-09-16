@@ -1,0 +1,16 @@
+select
+ count(case when device_type in ('tablet') 
+ then 1 else null end) as count 
+ from viewership;
+
+
+
+
+second
+
+ select
+ count(case when device_type ='tablet'
+ then 1 else null end) as num_of_tablet ,
+ count(case when device_type ='phone'
+ then 1 else null end) as num_of_phone 
+ from viewership;
