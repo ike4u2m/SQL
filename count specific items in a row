@@ -1,3 +1,38 @@
+
+
+
+ 
+ 
+
+select skill, count(candidate_id) as num_skill
+ from skillset
+ group by skill
+ ;
+
+
+ 
+ select count(candidate_id)
+ from skillset
+ where skill = 'tableau';
+
+
+
+
+ 
+ SELECT
+    
+    sum(CASE WHEN skill = 'Python' THEN 1 ELSE 0 END) AS Python_count,
+    sum(CASE WHEN skill = 'Tableau' THEN 1 ELSE 0 END) AS Tableau_count,
+    sum(CASE WHEN skill = 'PostgreSQL' THEN 1 ELSE 0 END) AS PostgreSQL_count,
+sum(CASE WHEN skill = 'R' THEN 1 ELSE 0 END) AS R_count,
+    sum(CASE WHEN skill = 'PowerBI' THEN 1 ELSE 0 END) AS PowerBI_count,
+    sum(CASE WHEN skill = 'SQL Server' THEN 1 ELSE 0 END) AS SQLServer_count
+FROM
+    skillset
+    ;
+
+
+
 select
  count(case when device_type in ('tablet') 
  then 1 else null end) as count 
