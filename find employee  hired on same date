@@ -1,1 +1,11 @@
 find employee  hired on same date
+
+ select first_name,last_name,hire_date from employees
+where hire_date = '1986-08-28'; 
+
+using sub query 
+
+select first_name,last_name,hire_date from employees
+where hire_date  in
+(select hire_date from employees
+where emp_no = 10003);
