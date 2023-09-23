@@ -2,3 +2,7 @@ select e.first_name,e.last_name,s.salary from employees as e
  join salaries as s on e.emp_no=s.emp_no
  where s.salary =
 (select max(salary) from salaries);
+
+here i have to join the two table, namely : employee and salaries table,
+then use the conditional query "where s.salary"  is equal to the result obtained from the sub-query.
+
