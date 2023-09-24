@@ -6,3 +6,35 @@ select e.first_name,e.last_name,s.salary from employees as e
 here i have to join the two table, namely : employee and salaries table,
 then use the conditional query "where s.salary"  is equal to the result obtained from the sub-query.
 
+
+#finnding the nth
+
+SELECT DISTINCT s.salary, s.emp_no
+FROM (
+  SELECT salary, emp_no, DENSE_RANK() OVER (ORDER BY salary DESC) AS salary_rank
+  FROM salaries
+) AS s
+WHERE s.salary_rank = 3; # keep substituting the number to et desired result
+
+
+
+# find the second highest earner
+select max(salary) from salaries where salary<
+(select max(salary) from salaries);
+# or 
+
+select max(salary) from salaries where salary not in
+(select max(salary) from salaries);
+
+#find the 3rd salary
+select max(salary) from salaries where salary <
+(select max(salary) from salaries where salary not in
+(select max(salary) from salaries));
+
+#or
+
+select max(salary) from salaries where salary <
+(select max(salary) from salaries where salary<
+(select max(salary) from salaries));
+
+
