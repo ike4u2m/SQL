@@ -12,3 +12,4 @@ select  avg(total) from num_users;
 
 count the total
 select  count(total) from num_users;
+
