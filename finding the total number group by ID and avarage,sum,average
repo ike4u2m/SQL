@@ -1,0 +1,14 @@
+
+create a cte and find sum of each users first
+CREATE TEMPORARY TABLE num_users AS (
+    SELECT emp_no, SUM(salary) AS total
+    FROM salaries
+    GROUP BY emp_no
+);
+
+
+average of the total
+select  avg(total) from num_users;
+
+count the total
+select  count(total) from num_users;
