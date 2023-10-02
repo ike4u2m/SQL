@@ -13,3 +13,18 @@ select  avg(total) from num_users;
 count the total
 select  count(total) from num_users;
 
+
+
+
+finding the total number group by ID and avarage,sum,average
+CREATE TEMPORARY TABLE sala_mans AS 
+(
+    SELECT s.emp_no, DATE_FORMAT(s.to_date, '%Y-%m') AS year, SUM(s.salary) AS total_salary,
+    e.first_name, e.last_name, e.gender
+    FROM salaries AS s
+    JOIN employees AS e ON s.emp_no = e.emp_no
+    GROUP BY s.emp_no, DATE_FORMAT(s.to_date, '%Y-%m')
+);
+
+
+select min(total_salary),max(total_salary),avg(total_salary) from sala_mans;
