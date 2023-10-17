@@ -28,3 +28,21 @@ CREATE TEMPORARY TABLE sala_mans AS
 
 
 select min(total_salary),max(total_salary),avg(total_salary) from sala_mans;
+
+
+
+
+
+
+
+
+
+CREATE TEMPORARY TABLE sala_mans AS (
+select e.emp_no,e.first_name,e.last_name,e.gender,sum(s.salary) as total_salary from salaries as s 
+join employees as e on s.emp_no=e.emp_no
+group by e.emp_no) ;
+
+
+select first_name, min(total_salary), max(total_salary),
+avg(total_salary), stddev(total_salary) from sala_mans 
+group by first_name
