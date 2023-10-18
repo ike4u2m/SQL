@@ -46,3 +46,18 @@ group by e.emp_no) ;
 select first_name, min(total_salary), max(total_salary),
 avg(total_salary), stddev(total_salary) from sala_mans 
 group by first_name
+
+
+
+
+
+
+
+/*this count the number of customer_id */
+
+CREATE TEMPORARY TABLE pulio AS(
+select customer_id, count(*) num_of_appaer from sales group by customer_id);
+
+/*this count the distribution of the customer_id*/
+
+select num_of_appaer, count(*) from pulio group by num_of_appaer;
